@@ -2,16 +2,20 @@ import Link from 'next/link';
 
 import styles from './Nav.module.css';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
         setIsMenuOpen(true);
+        setIsMobile(false);
       } else {
         setIsMenuOpen(false);
+        setIsMobile(true);
       }
     };
 
@@ -26,22 +30,29 @@ const Nav: React.FC = () => {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>
+      <motion.div className={styles.logo} whileHover={{ borderRadius: '0' }}>
         <Link href="/">
           <span className={styles.logo}>{'<ABY>'}</span>
         </Link>
-      </div>
+      </motion.div>
       <div className={`${styles.listContainer} ${isMenuOpen ? '' : ' hidden'}`}>
         <ul className={styles.list}>
           <li>
-            <Link href="#about" onClick={() => setIsMenuOpen((prev) => !prev)}>
+            <Link
+              href="#about"
+              onClick={() => {
+                if (isMobile) setIsMenuOpen((prev) => !prev);
+              }}
+            >
               About
             </Link>
           </li>
           <li>
             <Link
               href="#projects"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
+              onClick={() => {
+                if (isMobile) setIsMenuOpen((prev) => !prev);
+              }}
             >
               Projects
             </Link>
@@ -49,7 +60,9 @@ const Nav: React.FC = () => {
           <li>
             <Link
               href="#contact"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
+              onClick={() => {
+                if (isMobile) setIsMenuOpen((prev) => !prev);
+              }}
             >
               Contact
             </Link>
@@ -93,7 +106,12 @@ const Nav: React.FC = () => {
           />
         </svg>
       </div>
-      {isMenuOpen && <div className={styles.panel}></div>}
+      {isMenuOpen && (
+        <div
+          className={styles.panel}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        ></div>
+      )}
     </nav>
   );
 };
