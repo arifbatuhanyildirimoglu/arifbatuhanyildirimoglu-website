@@ -2,11 +2,26 @@ import Link from 'next/link';
 
 import styles from './Nav.module.css';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  const list = {
+    hidden: { opacity: 0, y: -20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const listItem = {
+    hidden: { opacity: 0, x: 20 },
+    show: { opacity: 1, x: 0 },
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,56 +51,69 @@ const Nav: React.FC = () => {
         </Link>
       </motion.div>
       <div className={`${styles.listContainer} ${isMenuOpen ? '' : ' hidden'}`}>
-        <ul className={styles.list}>
-          <li>
-            <Link
-              href="#about"
-              onClick={() => {
-                if (isMobile) setIsMenuOpen((prev) => !prev);
-              }}
+        {isMenuOpen && (
+          <AnimatePresence>
+            <motion.ul
+              className={styles.list}
+              variants={list}
+              initial="hidden"
+              animate="show"
             >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#projects"
-              onClick={() => {
-                if (isMobile) setIsMenuOpen((prev) => !prev);
-              }}
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#contact"
-              onClick={() => {
-                if (isMobile) setIsMenuOpen((prev) => !prev);
-              }}
-            >
-              Contact
-            </Link>
-          </li>
-          <li className={styles.listItemX}>
-            <div onClick={() => setIsMenuOpen((prev) => !prev)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+              <motion.li variants={listItem} whileHover={{ scale: 1.1 }}>
+                <Link
+                  href="#about"
+                  onClick={() => {
+                    if (isMobile) setIsMenuOpen((prev) => !prev);
+                  }}
+                >
+                  About
+                </Link>
+              </motion.li>
+              <motion.li variants={listItem} whileHover={{ scale: 1.1 }}>
+                <Link
+                  href="#projects"
+                  onClick={() => {
+                    if (isMobile) setIsMenuOpen((prev) => !prev);
+                  }}
+                >
+                  Projects
+                </Link>
+              </motion.li>
+              <motion.li variants={listItem} whileHover={{ scale: 1.1 }}>
+                <Link
+                  href="#contact"
+                  onClick={() => {
+                    if (isMobile) setIsMenuOpen((prev) => !prev);
+                  }}
+                >
+                  Contact
+                </Link>
+              </motion.li>
+              <motion.li
+                className={styles.listItemX}
+                variants={listItem}
+                whileHover={{ scale: 1.1 }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18 18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-          </li>
-        </ul>
+                <div onClick={() => setIsMenuOpen((prev) => !prev)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+              </motion.li>
+            </motion.ul>
+          </AnimatePresence>
+        )}
       </div>
       <div
         className={styles.burger}
@@ -107,10 +135,12 @@ const Nav: React.FC = () => {
         </svg>
       </div>
       {isMenuOpen && (
-        <div
+        <motion.div
           className={styles.panel}
           onClick={() => setIsMenuOpen((prev) => !prev)}
-        ></div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        ></motion.div>
       )}
     </nav>
   );
