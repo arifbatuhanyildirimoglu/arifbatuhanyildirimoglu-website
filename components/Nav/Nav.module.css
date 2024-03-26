@@ -5,7 +5,7 @@
   padding: 1rem 2rem;
   background-color: var(--color-dark);
   color: var(--color-light);
-  height: 5rem;
+  height: 100%;
 }
 .nav .logo {
   background: var(--color-light);
@@ -23,7 +23,7 @@
 }
 .nav .listContainer {
   position: absolute;
-  top: 50vh;
+  top: 35vh;
   left: 0;
   text-align: center;
   width: 100%;
@@ -32,10 +32,7 @@
 .nav .listContainer .list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-.nav .listContainer .list li {
-  list-style: none;
+  gap: 2rem;
 }
 .nav .listContainer .list .listItemX {
   margin-top: 2rem;
@@ -59,6 +56,20 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+.nav .listSocialContainer {
+  position: absolute;
+  top: 85vh;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+}
+.nav .listSocialContainer .listSocial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
 @media only screen and (min-width: 768px) {
   .nav .burger {
@@ -77,6 +88,11 @@
   }
   .nav .listContainer .list .listItemX {
     display: none;
+  }
+  .nav .listSocialContainer {
+    position: static;
+    width: auto;
+    z-index: 0;
   }
 }
 @media only screen and (min-width: 1024px) {

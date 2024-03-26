@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Nav from '@/components/Nav/Nav';
+import Hero from '@/components/Hero/Hero';
 
 export default function Home() {
   return (
@@ -25,10 +26,12 @@ export default function Home() {
         {/* about */}
         {/* projects */}
         {/* contact */}
-        <div className="nav">
+        <div className={styles.nav}>
           <Nav />
         </div>
-        <div className="hero"></div>
+        <div className="hero">
+          <Hero />
+        </div>
         <div className="about"></div>
         <div className="projects"></div>
         <div className="contact"></div>

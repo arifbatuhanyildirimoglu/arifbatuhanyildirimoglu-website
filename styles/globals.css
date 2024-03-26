@@ -19,10 +19,14 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.hidden {
-  display: none !important;
+li {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
 }
