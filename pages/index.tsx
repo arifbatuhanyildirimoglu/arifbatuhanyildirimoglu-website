@@ -2,6 +2,8 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Nav from '@/components/Nav/Nav';
 import Hero from '@/components/Hero/Hero';
+import axios from 'axios';
+import { InferGetServerSidePropsType } from 'next';
 
 export default function Home() {
   return (
@@ -29,7 +31,7 @@ export default function Home() {
         <div className={styles.nav}>
           <Nav />
         </div>
-        <div className="hero">
+        <div className={styles.hero}>
           <Hero />
         </div>
         <div className="about"></div>
