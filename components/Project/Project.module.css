@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+}
+.container .imgContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}

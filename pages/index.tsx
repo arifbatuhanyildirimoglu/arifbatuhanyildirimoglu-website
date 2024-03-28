@@ -5,6 +5,7 @@ import Hero from '@/components/Hero/Hero';
 import axios from 'axios';
 import { InferGetServerSidePropsType } from 'next';
 import About from '@/components/About/About';
+import Projects from '@/components/Projects/Projects';
 
 export default function Home() {
   return (
@@ -38,7 +39,9 @@ export default function Home() {
         <div className={styles.about} id="about">
           <About />
         </div>
-        <div className={styles.projects}></div>
+        <div className={styles.projects}>
+          <Projects />
+        </div>
         <div className={styles.contact}></div>
       </main>
     </>

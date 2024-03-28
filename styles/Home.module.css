@@ -5,5 +5,8 @@
   height: 5rem;
 }
 .main .hero {
-  height: 95vh;
+  height: 100vh;
+}
+.main .about {
+  height: 100vh;
 }
