@@ -4,6 +4,7 @@ import Nav from '@/components/Nav/Nav';
 import Hero from '@/components/Hero/Hero';
 import axios from 'axios';
 import { InferGetServerSidePropsType } from 'next';
+import About from '@/components/About/About';
 
 export default function Home() {
   return (
@@ -34,9 +35,11 @@ export default function Home() {
         <div className={styles.hero}>
           <Hero />
         </div>
-        <div className="about"></div>
-        <div className="projects"></div>
-        <div className="contact"></div>
+        <div className={styles.about} id="about">
+          <About />
+        </div>
+        <div className={styles.projects}></div>
+        <div className={styles.contact}></div>
       </main>
     </>
   );
