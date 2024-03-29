@@ -4,8 +4,16 @@ import axios from 'axios';
 
 const Contact: React.FC = () => {
   const [error, setError] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
   const [pending, setPending] = useState<boolean>(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSuccessEvent(bool: boolean) {
+    setSuccess(bool);
+    setInterval(() => {
+      setSuccess(false);
+    }, 3000);
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,6 +38,7 @@ const Contact: React.FC = () => {
     }
     setError(false);
     setPending(false);
+    handleSuccessEvent(true);
     formRef.current?.reset();
   }
 
@@ -39,6 +48,11 @@ const Contact: React.FC = () => {
       {error && (
         <div className={styles.error}>
           <p>Something went wrong. Please try again later.</p>
+        </div>
+      )}
+      {success && (
+        <div className={styles.success}>
+          <p>Message sent successfully!</p>
         </div>
       )}
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
