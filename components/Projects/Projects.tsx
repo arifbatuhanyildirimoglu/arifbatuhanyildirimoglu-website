@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const imageKeys = ['images/fisher-rope.jpg', 'images/hero.jpg'];
+    const imageKeys = ['images/fisher-rope.jpg'];
     async function getLinks() {
       const query = imageKeys.map((key) => `key=${key}`).join('&');
       const res = await axios.get(`/api/getAwsImageLink?${query}`);
@@ -18,7 +18,6 @@ const Projects: React.FC = () => {
       const newImageLinks = new Map<string, string>();
       for (let i = 0; i < imageKeys.length; i++) {
         newImageLinks.set(imageKeys[i], links[i]);
-        // setImageLinks((prev) => prev.set(imageKeys[i], links[i]));
       }
       setImageLinks(newImageLinks);
       setLoading(false);
