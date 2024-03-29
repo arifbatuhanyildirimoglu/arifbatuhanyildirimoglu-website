@@ -3,6 +3,7 @@
 }
 .main .nav {
   height: 5rem;
+  z-index: 3;
 }
 .main .hero {
   height: 100vh;

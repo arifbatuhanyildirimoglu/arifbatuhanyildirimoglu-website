@@ -2,13 +2,42 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Nav from '@/components/Nav/Nav';
 import Hero from '@/components/Hero/Hero';
-import axios from 'axios';
-import { InferGetServerSidePropsType } from 'next';
 import About from '@/components/About/About';
 import Projects from '@/components/Projects/Projects';
 import Contact from '@/components/Contact/Contact';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [isNavShown, setIsNavShown] = useState(true);
+  const [scrollPos, setScrollPos] = useState(0);
+
+  const navVariants = {
+    hidden: { opacity: 0, y: -20 },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      console.log(currentScrollPos);
+      if (scrollPos === 0 || scrollPos < 75 || currentScrollPos < scrollPos) {
+        setIsNavShown(true);
+      } else {
+        setIsNavShown(false);
+      }
+      setScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollPos]);
+
   return (
     <>
       <Head>
@@ -35,9 +64,15 @@ export default function Home() {
             siteye türkçe dil eklenebilir.
             navbar sticky yapılabilir.
         */}
-        <div className={styles.nav}>
+
+        <div
+          className={`${styles.nav} ${isNavShown ? '' : 'hiddenWithOpacity'} ${
+            scrollPos < 80 ? '' : 'sticky'
+          }`}
+        >
           <Nav />
         </div>
+
         <div className={styles.hero}>
           <Hero />
         </div>
