@@ -1,3 +1,22 @@
 .container {
   height: 100%;
 }
+.container .title {
+  color: var(--color-dark);
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+.container .projectContainer {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .container .projectContainer > div:nth-child(odd) {
+    margin-left: 0.5rem;
+  }
+  .container .projectContainer > div:nth-child(even) {
+    margin-right: 0.5rem;
+  }
+}

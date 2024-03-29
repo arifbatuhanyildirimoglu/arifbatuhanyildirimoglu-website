@@ -9,13 +9,12 @@ export default async function handler(
   if (method === 'GET') {
     try {
       let { key } = req.query;
-      console.log('key', key);
-      let links = [];
 
       if (!key) {
         return res.status(400).json({ message: 'Bad request' });
       }
 
+      let links = [];
       if (Array.isArray(key)) {
         for (const k of key as string[]) {
           links.push(convertToAwsLink(k));

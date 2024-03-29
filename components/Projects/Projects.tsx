@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const imageKeys = ['images/fisher-rope.jpg'];
+    const imageKeys = ['images/fisher-rope.jpg', 'images/fashion-tailor.jpg'];
     async function getLinks() {
       const query = imageKeys.map((key) => `key=${key}`).join('&');
       const res = await axios.get(`/api/getAwsImageLink?${query}`);
@@ -29,14 +29,25 @@ const Projects: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Projects</h2>
+      <h2 className={styles.title}>Projects</h2>
       <div className={styles.projectContainer}>
         <Project
+          title="Fashion Tailor"
+          year="2023"
+          description="A hybridcasual tailor shop owner game made with Unity"
+          techs={['Unity', 'C#', 'Blender']}
+          imgSrc={imageLinks.get('images/fashion-tailor.jpg')}
+          link="https://play.google.com/store/apps/details?id=happy.game.fashiontailor"
+          linkText="Fashion Tailor on Google Play Store"
+        />
+        <Project
           title="Fisher Rope"
-          year="2021"
+          year="2022"
           description="A hypercasual fishing game made with Unity"
           techs={['Unity', 'C#']}
           imgSrc={imageLinks.get('images/fisher-rope.jpg')}
+          link="https://play.google.com/store/apps/details?id=happy.game.fisherrope&hl=en&gl=US"
+          linkText="Fisher Rope on Google Play Store"
         />
       </div>
     </div>

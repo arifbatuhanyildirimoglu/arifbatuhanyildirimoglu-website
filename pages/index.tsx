@@ -39,10 +39,10 @@ export default function Home() {
         <div className={styles.about} id="about">
           <About />
         </div>
-        <div className={styles.projects}>
+        <div className={styles.projects} id="projects">
           <Projects />
         </div>
-        <div className={styles.contact}></div>
+        <div className={styles.contact} id="contact"></div>
       </main>
     </>
   );
