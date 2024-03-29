@@ -10,3 +10,6 @@
 .main .about {
   height: 100vh;
 }
+.main .contact {
+  min-height: 100vh;
+}

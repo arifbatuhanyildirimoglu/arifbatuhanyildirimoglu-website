@@ -14,7 +14,6 @@ const Projects: React.FC = () => {
       const query = imageKeys.map((key) => `key=${key}`).join('&');
       const res = await axios.get(`/api/getAwsImageLink?${query}`);
       const links = res.data.links;
-      console.log('links', links);
       const newImageLinks = new Map<string, string>();
       for (let i = 0; i < imageKeys.length; i++) {
         newImageLinks.set(imageKeys[i], links[i]);

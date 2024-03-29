@@ -6,6 +6,7 @@ import axios from 'axios';
 import { InferGetServerSidePropsType } from 'next';
 import About from '@/components/About/About';
 import Projects from '@/components/Projects/Projects';
+import Contact from '@/components/Contact/Contact';
 
 export default function Home() {
   return (
@@ -30,6 +31,10 @@ export default function Home() {
         {/* about */}
         {/* projects */}
         {/* contact */}
+        {/* Download CV butonu eklenebilir.
+            siteye türkçe dil eklenebilir.
+            navbar sticky yapılabilir.
+        */}
         <div className={styles.nav}>
           <Nav />
         </div>
@@ -42,7 +47,9 @@ export default function Home() {
         <div className={styles.projects} id="projects">
           <Projects />
         </div>
-        <div className={styles.contact} id="contact"></div>
+        <div className={styles.contact} id="contact">
+          <Contact />
+        </div>
       </main>
     </>
   );
