@@ -9,7 +9,11 @@ const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const imageKeys = ['images/fisher-rope.jpg', 'images/fashion-tailor.jpg'];
+    const imageKeys = [
+      'images/fisher-rope.jpg',
+      'images/fashion-tailor.jpg',
+      'images/hepsiorada.png',
+    ];
     async function getLinks() {
       const query = imageKeys.map((key) => `key=${key}`).join('&');
       const res = await axios.get(`/api/getAwsImageLink?${query}`);
@@ -47,6 +51,13 @@ const Projects: React.FC = () => {
           imgSrc={imageLinks.get('images/fisher-rope.jpg')}
           link="https://play.google.com/store/apps/details?id=happy.game.fisherrope&hl=en&gl=US"
           linkText="Fisher Rope on Google Play Store"
+        />
+        <Project
+          title="hepsiorada"
+          year="2020"
+          description="A desktop e-commerce app like Hepsiburada"
+          techs={['Java', 'JavaFX', 'CSS', 'SceneBuilder', 'SQLite']}
+          imgSrc={imageLinks.get('images/hepsiorada.png')}
         />
       </div>
     </div>
