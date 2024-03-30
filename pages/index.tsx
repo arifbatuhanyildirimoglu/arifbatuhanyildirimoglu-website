@@ -6,8 +6,12 @@ import About from '@/components/About/About';
 import Projects from '@/components/Projects/Projects';
 import Contact from '@/components/Contact/Contact';
 import { useEffect, useState } from 'react';
+import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Home');
+
   const [isNavShown, setIsNavShown] = useState(true);
   const [scrollPos, setScrollPos] = useState(0);
 
@@ -32,11 +36,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Arif Batuhan Yıldırımoğlu | Software Engineer</title>
-        <meta
-          name="description"
-          content="Personel website of Arif Batuhan Yıldırımoğlu"
-        />
+        <title>{t('head.title')}</title>
+        <meta name="description" content={t('head.meta.description')} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
@@ -79,4 +80,12 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../messages/${locale}.json`)).default,
+    },
+  };
 }

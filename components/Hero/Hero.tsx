@@ -1,17 +1,13 @@
 import { Suspense, useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 import TypewriterComponent from 'typewriter-effect';
+import { useTranslations } from 'next-intl';
 
 const Hero: React.FC = () => {
-  const texts = [
-    'Software Engineer',
-    'Web Developer',
-    'React Developer',
-    'Frontend Developer',
-    'Fullstack Developer',
-    'Game Developer',
-    'Unity Developer',
-  ];
+  const t = useTranslations('Hero');
+  const texts = ['se', 'wd', 'rd', 'fd', 'gd', 'ud'].map((key) =>
+    t(`texts.${key}`)
+  );
 
   return (
     <div className={styles.container}>

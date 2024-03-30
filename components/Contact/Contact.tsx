@@ -1,8 +1,11 @@
 import { FormEvent, useRef, useState } from 'react';
 import styles from './Contact.module.css';
 import axios from 'axios';
+import { useTranslations } from 'next-intl';
 
 const Contact: React.FC = () => {
+  const t = useTranslations('Contact');
+
   const [error, setError] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [pending, setPending] = useState<boolean>(false);
@@ -44,33 +47,33 @@ const Contact: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Contact</h2>
+      <h2 className={styles.title}>{t('title')}</h2>
       {error && (
         <div className={styles.error}>
-          <p>Something went wrong. Please try again later.</p>
+          <p>{t('error')}</p>
         </div>
       )}
       {success && (
         <div className={styles.success}>
-          <p>Message sent successfully!</p>
+          <p>{t('success')}</p>
         </div>
       )}
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.formField}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">{t('form.name')}</label>
           <input type="text" id="name" name="name" required />
         </div>
         <div className={styles.formField}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t('form.email')}</label>
           <input type="email" id="email" name="email" required />
         </div>
         <div className={styles.formField}>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">{t('form.message')}</label>
           <textarea id="message" name="message" required />
         </div>
         <button type="submit">
           {!pending ? (
-            'Send'
+            t('form.submit')
           ) : (
             <div>
               <svg

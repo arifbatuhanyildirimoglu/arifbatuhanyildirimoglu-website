@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './Project.module.css';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const Project: React.FC<{
   title: string;
@@ -11,6 +12,8 @@ const Project: React.FC<{
   link?: string;
   linkText?: string;
 }> = ({ title, year, description, techs, imgSrc, link, linkText }) => {
+  const t = useTranslations('Project');
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -27,11 +30,11 @@ const Project: React.FC<{
         )}
         <div className={styles.projectContent}>
           <div className={styles.contentField}>
-            <h3>Description</h3>
+            <h3>{t('description')}</h3>
             <p>{description}</p>
           </div>
           <div className={styles.contentField}>
-            <h3>Technologies Used</h3>
+            <h3>{t('tech')}</h3>
             <ul>
               {techs.map((tech, idx) => (
                 <li key={idx}>{tech}</li>
@@ -40,7 +43,7 @@ const Project: React.FC<{
           </div>
           {link && (
             <div className={styles.contentField}>
-              <h3>Link</h3>
+              <h3>{t('link')}</h3>
               <Link href={link} target="_blank">
                 {linkText}
               </Link>

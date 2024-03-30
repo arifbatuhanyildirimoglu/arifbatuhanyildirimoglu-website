@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import styles from './About.module.css';
+import { useTranslations } from 'next-intl';
 
 const About: React.FC = () => {
+  const t = useTranslations('About');
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>About Me</h2>
+      <h2 className={styles.title}>{t('title')}</h2>
       <div className={styles.imageContainer}>
         <Image
           src="/images/author.jpg"
@@ -15,11 +18,7 @@ const About: React.FC = () => {
       </div>
       <div className={styles.explanationContainer}>
         <p className={styles.explanation}>
-          I am a software engineer who is passionate about writing clean and
-          efficient code. I have experience in web development and game
-          development. I am always eager to learn new technologies and improve
-          my skills. I am a team player and I enjoy working in a collaborative
-          environment.
+          {t('explanation')}
         </p>
       </div>
     </div>

@@ -3,8 +3,11 @@ import Project from '../Project/Project';
 import styles from './Projects.module.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useTranslations } from 'next-intl';
 
 const Projects: React.FC = () => {
+  const t = useTranslations('Projects');
+
   const [imageLinks, setImageLinks] = useState<Map<string, string>>(new Map());
   const [loading, setLoading] = useState(true);
 
@@ -28,16 +31,16 @@ const Projects: React.FC = () => {
     getLinks();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>{t('loading')}</div>;
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Projects</h2>
+      <h2 className={styles.title}>{t('title')}</h2>
       <div className={styles.projectContainer}>
         <Project
           title="Fashion Tailor"
           year="2023"
-          description="A hybridcasual tailor shop owner game made with Unity"
+          description={t('fashionTailorDescription')}
           techs={['Unity', 'C#', 'Blender']}
           imgSrc={imageLinks.get('images/fashion-tailor.jpg')}
           link="https://play.google.com/store/apps/details?id=happy.game.fashiontailor"
@@ -46,7 +49,7 @@ const Projects: React.FC = () => {
         <Project
           title="Fisher Rope"
           year="2022"
-          description="A hypercasual fishing game made with Unity"
+          description={t('fisherRopeDescription')}
           techs={['Unity', 'C#']}
           imgSrc={imageLinks.get('images/fisher-rope.jpg')}
           link="https://play.google.com/store/apps/details?id=happy.game.fisherrope&hl=en&gl=US"
@@ -55,7 +58,7 @@ const Projects: React.FC = () => {
         <Project
           title="hepsiorada"
           year="2020"
-          description="A desktop e-commerce app like Hepsiburada"
+          description={t('hepsioradaDescription')}
           techs={['Java', 'JavaFX', 'CSS', 'SceneBuilder', 'SQLite']}
           imgSrc={imageLinks.get('images/hepsiorada.png')}
         />

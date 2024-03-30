@@ -58,7 +58,14 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
 }
-.nav .listSocialContainer {
+.nav .socialAndLocaleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.nav .socialAndLocaleContainer .listSocialContainer {
   position: absolute;
   top: 85vh;
   left: 0;
@@ -66,7 +73,7 @@
   width: 100%;
   z-index: 3;
 }
-.nav .listSocialContainer .listSocial {
+.nav .socialAndLocaleContainer .listSocialContainer .listSocial {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +98,7 @@
   .nav .listContainer .list .listItemX {
     display: none;
   }
-  .nav .listSocialContainer {
+  .nav .socialAndLocaleContainer .listSocialContainer {
     position: static;
     width: auto;
     z-index: 0;

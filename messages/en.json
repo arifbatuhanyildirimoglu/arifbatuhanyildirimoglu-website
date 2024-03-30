@@ -1,0 +1,56 @@
+{
+  "Home": {
+    "head": {
+      "title": "Arif Batuhan Yıldırımoğlu | Software Engineer",
+      "meta": {
+        "description": "Personel website of Arif Batuhan Yıldırımoğlu"
+      }
+    }
+  },
+  "About": {
+    "title": "About Me",
+    "img": {
+      "alt": "Image of the author"
+    },
+    "explanation": "I am a software engineer who is passionate about writing clean and efficient code. I have experience in web development and game development. I am always eager to learn new technologies and improve my skills. I am a team player and I enjoy working in a collaborative environment."
+  },
+  "Contact": {
+    "title": "Contact Me",
+    "error": "Something went wrong. Please try again later.",
+    "success": "Message sent successfully.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send"
+    }
+  },
+  "Hero": {
+    "texts": {
+      "se": "Software Engineer",
+      "wd": "Web Developer",
+      "rd": "React Developer",
+      "fd": "Frontend Developer",
+      "gd": "Game Developer",
+      "ud": "Unity Developer"
+    }
+  },
+  "Nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Download CV"
+  },
+  "Project": {
+    "description": "Description",
+    "tech": "Technologies Used",
+    "link": "Link"
+  },
+  "Projects": {
+    "title": "Projects",
+    "loading": "Loading...",
+    "fashionTailorDescription": "A hybridcasual tailor shop owner game made with Unity",
+    "fisherRopeDescription": "A hypercasual fishing game made with Unity",
+    "hepsioradaDescription": "A desktop e-commerce app like Hepsiburada"
+  }
+}
