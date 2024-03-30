@@ -12,14 +12,13 @@ const About: React.FC = () => {
         <Image
           src="/images/author.jpg"
           alt="Picture of the author"
+          sizes={'100%'}
           fill
           quality={100}
         />
       </div>
       <div className={styles.explanationContainer}>
-        <p className={styles.explanation}>
-          {t('explanation')}
-        </p>
+        <p className={styles.explanation}>{t('explanation')}</p>
       </div>
     </div>
   );

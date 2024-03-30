@@ -25,7 +25,13 @@ const Project: React.FC<{
         {/* image varsa image */}
         {imgSrc && (
           <div className={styles.imgContainer}>
-            <Image loader={() => imgSrc} src={imgSrc} alt={title} fill />
+            <Image
+              loader={() => imgSrc}
+              src={imgSrc}
+              alt={title}
+              sizes="100%"
+              fill
+            />
           </div>
         )}
         <div className={styles.projectContent}>
