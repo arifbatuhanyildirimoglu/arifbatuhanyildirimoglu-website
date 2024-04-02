@@ -1,4 +1,3 @@
-import { Suspense, useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 import TypewriterComponent from 'typewriter-effect';
 import { useTranslations } from 'next-intl';

@@ -1,4 +1,3 @@
-import { convertToAwsLink } from '@/utils/convertToAwsLink';
 import Project from '../Project/Project';
 import styles from './Projects.module.css';
 import { useEffect, useState } from 'react';
