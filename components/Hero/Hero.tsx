@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.videoContainer}>
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src="https://d1fk60b0qsekuw.cloudfront.net/videos/hero" />
         </video>
         <div className={styles.overlay}></div>
