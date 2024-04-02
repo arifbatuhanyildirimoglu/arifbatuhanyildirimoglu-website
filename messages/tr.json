@@ -49,6 +49,7 @@
   "Projects": {
     "title": "Projeler",
     "loading": "Yükleniyor...",
+    "personalWebsiteDescription":"Nextjs ile yapılmış kişisel web sitem",
     "fashionTailorDescription": "Unity ile yapılmış hybridcasual bir terzilik oyunu",
     "fisherRopeDescription": "Unity ile yapılmış hybridcasual bir balıkçılık oyunu",
     "hepsioradaDescription": "Hepsiburada benzeri bir masaüstü e-ticaret uygulaması"

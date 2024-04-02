@@ -16,6 +16,7 @@ const Projects: React.FC = () => {
       'images/fisher-rope.jpg',
       'images/fashion-tailor.jpg',
       'images/hepsiorada.png',
+      'images/personal-website.png',
     ];
     async function getLinks() {
       const query = imageKeys.map((key) => `key=${key}`).join('&');
@@ -37,6 +38,21 @@ const Projects: React.FC = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>{t('title')}</h2>
       <div className={styles.projectContainer}>
+        <Project
+          title="Personal Website"
+          year="2024"
+          description={t('personalWebsiteDescription')}
+          techs={[
+            'HTML',
+            'CSS',
+            'Javascript',
+            'Nextjs',
+            'React',
+            'Nodejs',
+            'AWS (S3, Cloudfront)',
+          ]}
+          imgSrc={imageLinks.get('images/personal-website.png')}
+        />
         <Project
           title="Fashion Tailor"
           year="2023"

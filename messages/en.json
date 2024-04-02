@@ -49,6 +49,7 @@
   "Projects": {
     "title": "Projects",
     "loading": "Loading...",
+    "personalWebsiteDescription":"My personal website made with Nextjs",
     "fashionTailorDescription": "A hybridcasual tailor shop owner game made with Unity",
     "fisherRopeDescription": "A hypercasual fishing game made with Unity",
     "hepsioradaDescription": "A desktop e-commerce app like Hepsiburada"
