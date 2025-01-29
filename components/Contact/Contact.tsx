@@ -2,6 +2,7 @@ import { FormEvent, useRef, useState } from 'react';
 import styles from './Contact.module.css';
 import axios from 'axios';
 import { useTranslations } from 'next-intl';
+import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const t = useTranslations('Contact');
@@ -24,25 +25,43 @@ const Contact: React.FC = () => {
     const formData = new FormData(formRef.current as HTMLFormElement);
     const data = Object.fromEntries(formData);
 
-    if (!data.name || !data.email || !data.message) {
+    if (!data.from_name || !data.from_email || !data.message) {
       setError(true);
       setPending(false);
       return;
     }
 
-    const response = await axios.post('/api/contact', {
-      data,
-    });
-    const resData = await response.data;
-    if (!resData.success) {
-      setError(true);
-      setPending(false);
-      return;
-    }
-    setError(false);
-    setPending(false);
-    handleSuccessEvent(true);
-    formRef.current?.reset();
+    emailjs
+      .sendForm('service_z0e4k1c', 'template_2ofh73h', formRef.current as HTMLFormElement, 'WjZtpnDYGxMzSOG1g')
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setError(false);
+          setPending(false);
+          handleSuccessEvent(true);
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          setError(true);
+          setPending(false);
+          return;
+        },
+      );
+
+    //const response = await axios.post('/api/contact', {
+    //  data,
+    //});
+    //const resData = await response.data;
+    //if (!resData.success) {
+    //  setError(true);
+    //  setPending(false);
+    //  return;
+    //}
+    //setError(false);
+    //setPending(false);
+    //handleSuccessEvent(true);
+    //formRef.current?.reset();
   }
 
   return (
@@ -60,12 +79,12 @@ const Contact: React.FC = () => {
       )}
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.formField}>
-          <label htmlFor="name">{t('form.name')}</label>
-          <input type="text" id="name" name="name" required />
+          <label htmlFor="from_name">{t('form.name')}</label>
+          <input type="text" id="from_name" name="from_name" required />
         </div>
         <div className={styles.formField}>
-          <label htmlFor="email">{t('form.email')}</label>
-          <input type="email" id="email" name="email" required />
+          <label htmlFor="from_email">{t('form.email')}</label>
+          <input type="from_email" id="from_email" name="from_email" required />
         </div>
         <div className={styles.formField}>
           <label htmlFor="message">{t('form.message')}</label>
