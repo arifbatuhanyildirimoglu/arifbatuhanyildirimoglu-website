@@ -30,9 +30,11 @@
       "se": "Software Engineer",
       "wd": "Web Developer",
       "rd": "React Developer",
-      "fd": "Frontend Developer",
+      "fsd": "Fullstack Developer",
       "gd": "Game Developer",
-      "ud": "Unity Developer"
+      "ud": "Unity Developer",
+      "netd": ".NET Developer",
+      "nextd": "NextJs Developer"
     }
   },
   "Nav": {

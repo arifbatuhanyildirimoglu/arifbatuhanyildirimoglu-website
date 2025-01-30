@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 
 const Hero: React.FC = () => {
   const t = useTranslations('Hero');
-  const texts = ['se', 'wd', 'rd', 'fd', 'gd', 'ud'].map((key) =>
+  const texts = ['se', 'wd', 'rd', 'fsd', 'gd', 'ud', 'netd', 'nextd'].map((key) =>
     t(`texts.${key}`)
   );
 

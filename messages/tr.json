@@ -12,7 +12,7 @@
     "img": {
       "alt": "Yazarın fotoğrafı"
     },
-    "explanation": "Temiz ve verimli kod yazma konusunda tutkulu bir yazılım mühendisiyim. Web geliştirme ve oyun geliştirme konusunda birtakım tecrübelere sahibim. Her zaman yeni teknolojileri öğrenmeye ve becerilerimi geliştirmeye istekliyim. Bir takım içerisinde olmaktan ve işbirliğine dayalı bir ortamda çalışmaktan hoşlanırım."
+    "explanation": "Temiz ve verimli kod yazma konusunda tutkulu bir yazılım mühendisiyim. Web geliştirme ve oyun geliştirme konusunda tecrübeye sahibim. Her zaman yeni teknolojileri öğrenmeye ve becerilerimi geliştirmeye istekliyim. Bir takım içerisinde olmaktan ve işbirliğine dayalı bir ortamda çalışmaktan hoşlanırım."
   },
   "Contact": {
     "title": "Bana Ulaşın",
@@ -30,9 +30,11 @@
       "se": "Yazılım Mühendisi",
       "wd": "Web Geliştirici",
       "rd": "React Geliştirici",
-      "fd": "Frontend Geliştirici",
+      "fsd": "Fullstack Geliştirici",
       "gd": "Oyun Geliştirici",
-      "ud": "Unity Geliştirici"
+      "ud": "Unity Geliştirici",
+      "netd": ".NET Geliştirici",
+      "nextd": "NextJs Geliştirici"
     }
   },
   "Nav": {
