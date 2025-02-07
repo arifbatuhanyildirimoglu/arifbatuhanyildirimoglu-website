@@ -198,5 +198,5 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
         {loading ? 'Saving...' : isDirty ? (post ? 'Save Changes' : 'Create Post') : 'No Changes'}
       </button>
     </form>
-  );
+  ); 
 } 
