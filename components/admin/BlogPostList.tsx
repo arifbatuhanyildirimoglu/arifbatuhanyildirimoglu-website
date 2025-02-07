@@ -20,8 +20,10 @@ export default function BlogPostList() {
 
       if (error) throw error;
       setPosts(data || []);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -42,8 +44,10 @@ export default function BlogPostList() {
 
       if (error) throw error;
       setPosts(posts.filter(post => post.id !== id));
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
     }
   };
 

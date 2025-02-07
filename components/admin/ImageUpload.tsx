@@ -46,7 +46,7 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
       const filePath = `blog-images/${fileName}`;
 
       // Upload to Supabase Storage
-      const { error: uploadError, data } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('blog-assets')
         .upload(filePath, file);
 
@@ -58,12 +58,15 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
         .getPublicUrl(filePath);
 
       onUploadComplete(publicUrl);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
       console.error('Upload error:', error);
     } finally {
       setUploading(false);
     }
+
   };
 
   return (
