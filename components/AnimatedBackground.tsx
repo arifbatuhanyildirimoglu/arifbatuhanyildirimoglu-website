@@ -32,11 +32,12 @@ export default function AnimatedBackground() {
       fadeSpeed: number
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+        this.x = Math.random() * (canvas!.width)
+        this.y = Math.random() * (canvas!.height)
         this.size = Math.random() * 2 + 0.5
         this.speedX = Math.random() * 0.5 - 0.25
         this.speedY = Math.random() * 0.5 - 0.25
+
         this.opacity = Math.random() * 0.5 + 0.2
         this.fadeSpeed = Math.random() * 0.02 + 0.005
       }
@@ -46,10 +47,11 @@ export default function AnimatedBackground() {
         this.y += this.speedY
 
         // Wrap around screen
-        if (this.x < 0) this.x = canvas.width
-        if (this.x > canvas.width) this.x = 0
-        if (this.y < 0) this.y = canvas.height
-        if (this.y > canvas.height) this.y = 0
+        if (this.x < 0) this.x = canvas!.width
+        if (this.x > canvas!.width) this.x = 0
+        if (this.y < 0) this.y = canvas!.height
+        if (this.y > canvas!.height) this.y = 0
+
 
         // Pulsate opacity
         this.opacity += Math.sin(Date.now() * 0.001) * 0.01
