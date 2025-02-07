@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import typography from '@tailwindcss/typography';
+import animate from "tailwindcss-animate";
+import colors from 'tailwindcss/colors';
 
 export default {
     darkMode: ["class"],
@@ -10,6 +13,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+				...colors,
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -55,8 +59,51 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		typography: {
+  			DEFAULT: {
+  				css: {
+  					maxWidth: 'none',
+  					color: 'white',
+  					a: {
+  						color: '#3b82f6',
+  						'&:hover': {
+  							color: '#60a5fa',
+  						},
+  					},
+  					blockquote: {
+  						borderLeftColor: '#3b82f6',
+  						color: '#9ca3af',
+  					},
+  					'h1, h2, h3, h4': {
+  						color: 'white',
+  					},
+  					hr: { borderColor: '#374151' },
+  					ol: {
+  						li: {
+  							'&::marker': {
+  								color: '#6b7280',
+  							},
+  						},
+  					},
+  					ul: {
+  						li: {
+  							'&::marker': {
+  								color: '#6b7280',
+  							},
+  						},
+  					},
+  					strong: { color: 'white' },
+  					thead: {
+  						borderBottomColor: '#374151',
+  					},
+  					code: { color: '#e5e7eb' },
+  					'blockquote p:first-of-type::before': { content: 'none' },
+  					'blockquote p:first-of-type::after': { content: 'none' },
+  				},
+  			},
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate, typography],
 } satisfies Config;
