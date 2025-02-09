@@ -20,7 +20,7 @@ export const projects: Project[] = [
       github: "https://github.com/arifbatuhanyildirimoglu/arifbatuhanyildirimoglu-website",
       live: "https://arifbatuhanyildirimoglu.com"
     },
-    technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Supabase", "Vercel"],
+    technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Supabase", "Vercel", "AWS"],
   },
   {
     title: "Fashion Tailor",
