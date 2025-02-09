@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { Blog } from '@/lib/supabase';
 import BlogPostForm from './BlogPostForm';
+import { useTranslations } from 'next-intl';
 
 export default function BlogPostList() {
+  const t = useTranslations('admin.components.blogPostList');
   const [posts, setPosts] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -34,7 +36,8 @@ export default function BlogPostList() {
   }, []);
 
   const handleDelete = async (id: number) => {
-    if (!window.confirm('Are you sure you want to delete this post?')) return;
+    if (!window.confirm(t("areYouSure"))) return;
+
 
     try {
       const { error } = await supabase
@@ -51,7 +54,7 @@ export default function BlogPostList() {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>{t("loading")}</div>;
   if (error) return <div className="text-red-500">{error}</div>;
 
   if (editingPost) {
@@ -61,7 +64,7 @@ export default function BlogPostList() {
           onClick={() => setEditingPost(null)}
           className="mb-4 text-blue-500 hover:text-blue-400"
         >
-          ← Back to list
+          ← {t("backToList")}
         </button>
         <BlogPostForm
           post={editingPost}
@@ -93,7 +96,7 @@ export default function BlogPostList() {
                   : 'bg-yellow-500/10 text-yellow-500'
               }`}
             >
-              {post.published ? 'Published' : 'Draft'}
+              {post.published ? t("published") : t("draft")}
             </span>
           </div>
           <div className="flex space-x-2">
@@ -101,13 +104,13 @@ export default function BlogPostList() {
               onClick={() => setEditingPost(post)}
               className="text-blue-500 hover:text-blue-400"
             >
-              Edit
+              {t("edit")}
             </button>
             <button
               onClick={() => handleDelete(post.id)}
               className="text-red-500 hover:text-red-400"
             >
-              Delete
+              {t("delete")}
             </button>
           </div>
         </div>

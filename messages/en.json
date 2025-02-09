@@ -1,0 +1,119 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "skills": "Skills",
+    "journey": "Journey"
+  },
+  "hero": {
+    "title": "Hi, I'm ",
+    "name": "Arif Batuhan",
+    "profession": "Software Engineer",
+    "description": "I'm passionate about creating innovative solutions and bringing ideas to life through code. Focused on web development and game development.",
+    "buttonContact": "Get in Touch",
+    "buttonProjects": "View Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I'm a passionate software engineer with a strong foundation in computer science and a deep love for creating innovative solutions. My journey in software began during my high school years, where I discovered my passion for coding and problem-solving.",
+    "paragraph2": "Throughout my career, I've had the opportunity to work on diverse projects, from web applications to mobile games. This variety has helped me develop a versatile skill set and adaptability to new technologies and challenges.",
+    "paragraph3": "I specialize in full-stack web development and game development, with expertise in technologies like React, Next.js, Node.js, and Unity. I'm always eager to learn new technologies and stay up-to-date with industry trends.",
+    "listTitle": "What I Do",
+    "listItem1": "Develop responsive and user-friendly web applications",
+    "listItem2": "Create engaging mobile games with Unity",
+    "listItem3": "Design and implement efficient backend solutions",
+    "listItem4": "Optimize application performance and user experience"
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "journey":{
+    "title": "My Journey"
+  },
+  "contact": {
+    "mainTitle": "Get in Touch",
+    "subTitle": "Let's Connect",
+    "description": "Feel free to reach out for collaborations, opportunities, or just to say hello! I'll get back to you as soon as possible.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "buttonIdle": "Send Message",
+      "buttonSending": "Sending...",
+      "successMessage": "Message sent successfully! I'll get back to you soon.",
+      "errorMessage": "Something went wrong. Please try again later."
+
+    }
+  },
+  "footer": {
+    "copyright": "Arif Batuhan Yıldırımoğlu. All rights reserved."
+  },
+  "blog": {
+    "backToHome": "Back to Home",
+    "title": "Blog Posts",
+    "description": "Sharing my thoughts and experiences about software development, technology, and everything in between.",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "noPostTitle": "Coming Soon!",
+    "noPostMessage": "I'm currently working on some interesting blog posts. Stay tuned for updates!"
+  },
+  "admin": {
+    "loading": "Loading...",
+    "signOut": "Sign Out",
+    "createPost": "Create New Post",
+    "managePosts": "Manage Posts",
+    "login": {
+      "loading": "Loading...",
+      "title": "Sign in to Admin Panel",
+      "loginFailedError": "Login failed. Please try again.",
+      "unexpectedError": "An unexpected error occurred",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In"
+    },
+    "components": {
+      "blogPostForm": {
+        "title": "Title",
+        "slug": "Slug",
+        "excerpt": "Excerpt",
+        "content": "Content",
+        "image": "Featured Image",
+        "noImage": "No image selected",
+        "change": "change",
+        "published": "Published",
+        "unexpectedError": "An unexpected error occurred",
+        "loading": "Saving...",
+        "saveChanges": "Save Changes",
+        "createPost": "Create Post",
+        "noChanges": "No Changes"
+      },
+      "blogPostList": {
+        "areYouSure": "Are you sure you want to delete this post?",
+        "loading": "Loading...",
+        "backToList": "Back to list",
+        "edit": "Edit",
+        "delete": "Delete",
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "imageUpload": {
+        "errorUpload": "Please upload an image file",
+        "errorImageSize": "Image size should be less than 5MB",
+        "noImageSelected": "No image selected",
+        "uploading": "Uploading...",
+        "change": "Change",
+        "supportedFormats": "Supported formats: JPG, PNG, GIF (max 5MB)"
+      }
+    }
+
+
+
+
+  }
+} 

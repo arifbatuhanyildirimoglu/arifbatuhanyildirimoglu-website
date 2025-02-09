@@ -6,8 +6,10 @@ import Image from "next/image"
 import { projects } from "@/data/projects"
 import type { Project } from "@/data/projects"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, locale }: { project: Project, locale: string | string[] | undefined }) {
   const [currentImage, setCurrentImage] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
   const controls = useAnimation()
@@ -140,7 +142,7 @@ function ProjectCard({ project }: { project: Project }) {
             }}
             className="bg-gray-800 p-3 sm:p-4 md:p-6 flex items-center justify-center"
           >
-            <p className="text-gray-300 text-xs sm:text-sm md:text-base">{project.description}</p>
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base">{project.description[locale as keyof typeof project.description]}</p>
           </div>
         </motion.div>
       </div>
@@ -149,13 +151,15 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Projects() {
+  const t = useTranslations('projects')
+  const { locale } = useParams()
   return (
     <section id="projects" className="min-h-screen py-12 sm:py-16 md:py-20 text-gray-200">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-white">Projects</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-white">{t('title')}</h2>
         <div>
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <ProjectCard key={project.title} project={project} locale={locale} />
           ))}
         </div>
       </div>

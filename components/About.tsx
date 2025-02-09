@@ -1,8 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 export default function About() {
+  const t = useTranslations('about')
+
   return (
     <section id="about" className="min-h-screen py-12 sm:py-16 md:py-20 text-gray-200">
       <div className="container mx-auto px-4">
@@ -14,9 +17,9 @@ export default function About() {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center text-white">
-            About Me
+            {t('title')}
           </h2>
-          
+
           <div className="space-y-6 sm:space-y-8 text-base sm:text-lg">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -25,10 +28,7 @@ export default function About() {
               viewport={{ once: true }}
               className="leading-relaxed"
             >
-              I&apos;m a passionate software engineer with a strong foundation in computer science
-              and a deep love for creating innovative solutions. My journey in technology
-              began during my high school years, where I discovered my passion for coding
-              and problem-solving.
+              {t('paragraph1')}
             </motion.p>
 
             <motion.p
@@ -38,9 +38,7 @@ export default function About() {
               viewport={{ once: true }}
               className="leading-relaxed"
             >
-              Throughout my career, I&apos;ve had the opportunity to work on diverse projects,
-              from web applications to mobile games. This variety has helped me develop
-              a versatile skill set and adaptability to new technologies and challenges.
+              {t('paragraph2')}
             </motion.p>
 
             <motion.p
@@ -50,9 +48,7 @@ export default function About() {
               viewport={{ once: true }}
               className="leading-relaxed"
             >
-              I specialize in full-stack web development and game development, with expertise
-              in technologies like React, Next.js, Node.js, and Unity. I&apos;m always eager
-              to learn new technologies and stay up-to-date with industry trends.
+              {t('paragraph3')}
             </motion.p>
 
             <motion.div
@@ -63,16 +59,17 @@ export default function About() {
               className="pt-4 sm:pt-6"
             >
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-white">
-                What I Do
+                {t('listTitle')}
               </h3>
               <ul className="list-disc list-inside space-y-3 sm:space-y-4 pl-4">
                 <motion.li
+
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  Develop responsive and user-friendly web applications
+                  {t('listItem1')}
                 </motion.li>
                 <motion.li
                   initial={{ opacity: 0, x: -20 }}
@@ -80,23 +77,25 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  Create engaging mobile games with Unity
+                  {t('listItem2')}
                 </motion.li>
                 <motion.li
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
+
                   transition={{ duration: 0.5, delay: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  Design and implement efficient backend solutions
+                  {t('listItem3')}
                 </motion.li>
                 <motion.li
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                   viewport={{ once: true }}
+
                 >
-                  Optimize application performance and user experience
+                  {t('listItem4')}
                 </motion.li>
               </ul>
             </motion.div>

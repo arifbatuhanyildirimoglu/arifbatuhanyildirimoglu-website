@@ -5,8 +5,10 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import BlogPostForm from '@/components/admin/BlogPostForm';
 import BlogPostList from '@/components/admin/BlogPostList';
+import { useTranslations } from 'next-intl';
 
 export default function AdminPage() {
+  const t  = useTranslations('admin');
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -44,10 +46,11 @@ export default function AdminPage() {
       <main className="min-h-screen bg-gray-900 text-white pt-24">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-32">
-            <div className="text-lg">Loading...</div>
+            <div className="text-lg">{t("loading")}</div>
           </div>
         </div>
       </main>
+
     );
   }
 
@@ -60,20 +63,20 @@ export default function AdminPage() {
             onClick={handleSignOut}
             className="px-4 py-2 text-sm text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
           >
-            Sign Out
+            {t("signOut")}
           </button>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">Create New Post</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t("createPost")}</h2>
             <BlogPostForm />
           </div>
           <div className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">Manage Posts</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t("managePosts")}</h2>
             <BlogPostList />
           </div>
         </div>
       </div>
     </main>
   );
-} 
+}

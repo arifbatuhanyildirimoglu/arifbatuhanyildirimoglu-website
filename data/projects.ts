@@ -1,8 +1,12 @@
 export interface Project {
   title: string;
-  description: string;
+  description: {
+    en: string;
+    tr: string;
+  };
   images: string[];
   technologies: string[];
+
   links?: {
     github?: string;
     live?: string;
@@ -12,7 +16,10 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "arifbatuhanyildirimoglu.com",
-    description: "My personal website built with Next.js",
+    description: {
+      en: "My personal website built with Next.js",
+      tr: "Next.js ile geliştirilmiş kişisel web sitem"
+  },
     images: [
       "https://arifbatuhanyildirimoglu-website.s3.eu-north-1.amazonaws.com/images/personal-website.png",
     ],
@@ -24,10 +31,14 @@ export const projects: Project[] = [
   },
   {
     title: "Fashion Tailor",
-    description: "A hybrid casual game built with Unity",
+    description: {
+      en: "A hybrid-casual game built with Unity",
+      tr: "Unity ile geliştirilmiş bir hybrid-casual oyun"
+    },
     images: [
       "https://arifbatuhanyildirimoglu-website.s3.eu-north-1.amazonaws.com/images/fashion-tailor.jpg",
     ],
+
     links: {
       live: "https://play.google.com/store/apps/details?id=happy.game.fashiontailorm"
     },
@@ -35,9 +46,13 @@ export const projects: Project[] = [
   },
   {
     title: "Fisher Rope",
-    description: "A hyper-casual game built with Unity",
+    description: {
+      en: "A hyper-casual game built with Unity",
+      tr: "Unity ile geliştirilmiş bir hyper-casual oyun"
+    },
     images: [
       "https://arifbatuhanyildirimoglu-website.s3.eu-north-1.amazonaws.com/images/fisher-rope.jpg",
+
     ],
     links: {
       live: "https://play.google.com/store/apps/details?id=happy.game.fisherrope&hl=en&gl=US"
@@ -46,8 +61,12 @@ export const projects: Project[] = [
   },
   {
     title: "hepsiorada",
-    description: "A desktop e-commerce app like hepsiburada",
+    description: {
+      en: "A desktop e-commerce app like hepsiburada",
+      tr: "Hepsiburada benzeri bir masaüstü e-ticaret uygulaması"
+    },
     images: [
+
       "https://arifbatuhanyildirimoglu-website.s3.eu-north-1.amazonaws.com/images/hepsiorada.png",
     ],
     technologies: ["Java", "JavaFX", "SqlLite", "CSS", "SceneBuilder"],

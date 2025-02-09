@@ -1,10 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi"
 
 export default function Contact() {
+  const t = useTranslations("contact")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,8 +60,9 @@ export default function Contact() {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-white">
-            Get in Touch
+            {t("mainTitle")}
           </h2>
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Info */}
@@ -71,11 +74,10 @@ export default function Contact() {
               className="space-y-6"
             >
               <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4">
-                Let&apos;s Connect
+                {t("subTitle")}
               </h3>
               <p className="text-base sm:text-lg text-gray-300 mb-6">
-                Feel free to reach out for collaborations, opportunities, or just to say hello!
-                I&apos;ll get back to you as soon as possible.
+                {t("description")}
               </p>
 
               <div className="space-y-4">
@@ -117,7 +119,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-300 mb-1">
-                    Name
+                    {t("form.name")}
                   </label>
                   <input
                     type="text"
@@ -129,13 +131,13 @@ export default function Contact() {
                     className="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
                       text-white placeholder-gray-400"
-                    placeholder="Your name"
+                    placeholder={t("form.namePlaceholder")}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm sm:text-base font-medium text-gray-300 mb-1">
-                    Email
+                    {t("form.email")}
                   </label>
                   <input
                     type="email"
@@ -147,13 +149,13 @@ export default function Contact() {
                     className="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
                       text-white placeholder-gray-400"
-                    placeholder="your@email.com"
+                    placeholder={t("form.emailPlaceholder")}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm sm:text-base font-medium text-gray-300 mb-1">
-                    Message
+                    {t("form.message")}
                   </label>
                   <textarea
                     id="message"
@@ -165,7 +167,7 @@ export default function Contact() {
                     className="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
                       text-white placeholder-gray-400 resize-none"
-                    placeholder="Your message..."
+                    placeholder={t("form.messagePlaceholder")}
                   />
                 </div>
 
@@ -181,17 +183,17 @@ export default function Contact() {
                         : "bg-blue-500 hover:bg-blue-600"
                     } text-white`}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? t("form.buttonSending") : t("form.buttonIdle")}
                 </motion.button>
 
                 {submitStatus === "success" && (
                   <p className="text-green-400 text-sm sm:text-base mt-2">
-                    Message sent successfully! I&apos;ll get back to you soon.
+                    {t("form.successMessage")}
                   </p>
                 )}
                 {submitStatus === "error" && (
                   <p className="text-red-400 text-sm sm:text-base mt-2">
-                    Something went wrong. Please try again later.
+                    {t("form.errorMessage")}
                   </p>
                 )}
               </form>

@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface ImageUploadProps {
   onUploadComplete: (url: string) => void;
@@ -11,6 +12,7 @@ interface ImageUploadProps {
 }
 
 export default function ImageUpload({ onUploadComplete, currentImageUrl }: ImageUploadProps) {
+  const t = useTranslations('admin.components.imageUpload');
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [preview, setPreview] = useState(currentImageUrl);
@@ -26,13 +28,13 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
 
       // Check file type
       if (!file.type.startsWith('image/')) {
-        setError('Please upload an image file');
+        setError(t("errorUpload"));
         return;
       }
 
       // Check file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        setError('Image size should be less than 5MB');
+        setError(t("errorImageSize"));
         return;
       }
 
@@ -89,7 +91,7 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
             />
           ) : (
             <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-              <span className="text-gray-400">No image selected</span>
+              <span className="text-gray-400">{t("noImageSelected")}</span>
             </div>
           )}
           <button
@@ -98,7 +100,7 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
             disabled={uploading}
             className="absolute bottom-2 right-2 bg-blue-600 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
           >
-            {uploading ? 'Uploading...' : 'Change'}
+            {uploading ? t("uploading") : t("change")}
           </button>
         </div>
       </div>
@@ -112,7 +114,7 @@ export default function ImageUpload({ onUploadComplete, currentImageUrl }: Image
       />
 
       <div className="text-sm text-gray-400">
-        Supported formats: JPG, PNG, GIF (max 5MB)
+        {t("supportedFormats")}
       </div>
     </div>
   );

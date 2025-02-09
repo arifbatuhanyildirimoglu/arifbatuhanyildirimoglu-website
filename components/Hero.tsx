@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
 
 export default function Hero() {
+  const t = useTranslations('hero')
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative">
+
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           {/* Text Content */}
@@ -16,17 +20,16 @@ export default function Hero() {
             className="flex-1 text-center md:text-left"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-              Hi, I&apos;m{" "}
+              {t('title')}
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
-                Arif Batuhan
+                {t('name')}
               </span>
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-300 mb-6">
-              Software Engineer
+              {t('profession')}
             </h2>
             <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto md:mx-0 mb-8">
-              I&apos;m passionate about creating innovative solutions and bringing ideas to life through code.
-              Focused on web development and game development.
+              {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
               <motion.a
@@ -37,7 +40,7 @@ export default function Hero() {
                   hover:bg-blue-600 transition-colors duration-300
                   shadow-lg shadow-blue-500/30 w-full sm:w-auto text-center"
               >
-                Get in Touch
+                {t('buttonContact')}
               </motion.a>
               <motion.a
                 href="#projects"
@@ -47,7 +50,7 @@ export default function Hero() {
                   hover:bg-blue-500/10 transition-colors duration-300
                   w-full sm:w-auto text-center"
               >
-                View Projects
+                {t('buttonProjects')}
               </motion.a>
             </div>
           </motion.div>

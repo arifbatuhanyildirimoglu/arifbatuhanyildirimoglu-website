@@ -3,16 +3,27 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+import { useTranslations, useLocale } from 'next-intl'
+import { Globe } from 'lucide-react'
 
-const navItems = ["Home", "About", "Skills", "Projects", "Journey", "Contact"]
+const navItems = ["home", "about", "skills", "projects", "journey", "contact"]
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("Home")
+  const t = useTranslations('navigation')
+  const [activeSection, setActiveSection] = useState("home")
   const [scrolled, setScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isHomePage = pathname === "/"
+  const currentLocale = useLocale()
+  const router = useRouter()
+  const isHomePage = pathname === "/" || pathname === "/en" || pathname === "/tr"
+
+  const toggleLocale = () => {
+    const newLocale = currentLocale === 'en' ? 'tr' : 'en'
+    const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`)
+    router.push(newPath)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,9 +57,9 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between md:justify-center relative">
+        <div className="flex items-center justify-between relative">
           {/* Logo */}
-          <Link href="/" className="hidden lg:block lg:absolute lg:left-4">
+          <Link href="/" className="hidden lg:block">
             <div className="relative w-14 h-14 group overflow-hidden bg-gray-100 rounded-tr-lg rounded-bl-lg transition-all duration-300 hover:rounded-none">
               <div className="absolute inset-0 flex items-center justify-center text-gray-900 font-semibold text-sm transition-all duration-300 group-hover:scale-105">
                 {'<ABY>'}
@@ -112,7 +123,7 @@ export default function Navbar() {
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item}
+                    {t(item)}
                   </Link>
                 </li>
               ))
@@ -123,7 +134,7 @@ export default function Navbar() {
                   className="text-base sm:text-lg font-medium text-white hover:text-blue-300 transition-colors duration-300 block md:inline-block"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Home
+                  {t('home')}
                 </Link>
               </li>
             )}
@@ -156,7 +167,7 @@ export default function Navbar() {
                     ${pathname.startsWith("/blog") ? "text-white" : "text-blue-400 group-hover:text-blue-300"}
                     transition-colors duration-300
                   `}>
-                    Blog
+                    {t('blog')}
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -180,6 +191,43 @@ export default function Navbar() {
               </Link>
             </motion.li>
           </ul>
+
+          {/* Language Switcher */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden md:flex items-center"
+          >
+            <button
+              onClick={toggleLocale}
+              className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-300"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="text-base font-medium">
+                {currentLocale.toUpperCase()}
+              </span>
+            </button>
+          </motion.div>
+
+          {/* Mobile Language Switcher (inside menu) */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="md:hidden block mt-4"
+          >
+            <button
+              onClick={() => {
+                toggleLocale()
+                setIsMenuOpen(false)
+              }}
+              className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-300"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="text-base font-medium">
+                {currentLocale.toUpperCase()}
+              </span>
+            </button>
+          </motion.div>
         </div>
       </div>
     </motion.nav>

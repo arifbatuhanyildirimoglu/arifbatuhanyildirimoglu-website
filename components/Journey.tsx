@@ -1,51 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-
-interface JourneyItem {
-  title: string
-  organization: string
-  period: string
-  description: string[]
-}
-
-const journeyItems: JourneyItem[] = [
-  {
-    title: "Software Engineer",
-    organization: "Colin's",
-    period: "2024 - Present",
-    description: [
-      "Developing web applications using .NET and MSSQL.",
-      "Creating responsive and user-friendly interfaces",
-      "Implementing backend solutions with various databases and cloud services",
-      "Collaborating with clients to understand requirements and deliver high-quality solutions"
-    ]
-  },
-  {
-    title: "Game Developer",
-    organization: "Happy Game Company",
-    period: "2022 - 2023",
-    description: [
-      "Developing mobile games using Unity and C#",
-      "Implementing game mechanics and user interfaces",
-      "Optimizing game performance for mobile devices",
-      "Publishing games to app stores and maintaining them"
-    ]
-  },
-  {
-    title: "Software Engineering Student",
-    organization: "Izmir University of Economics",
-    period: "2019 - 2023",
-    description: [
-      "Studied computer science fundamentals and software engineering principles",
-      "Completed various projects in different programming languages",
-      "Participated in team projects",
-      "Graduated with honors"
-    ]
-  }
-]
+import { journeyItems } from "@/data/journeyItems"
+import { useParams } from "next/navigation"
 
 export default function Journey() {
+  const { locale } = useParams()
   return (
     <section id="journey" className="min-h-screen py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4">
@@ -83,15 +43,15 @@ export default function Journey() {
                   {/* Content */}
                   <div className={`flex-1 ${index % 2 === 0 ? "sm:pr-16" : "sm:pl-16"} pl-8 sm:pl-0`}>
                     <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 hover:border-blue-500/50 transition-colors">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">{item.title}</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">{item.title[locale as keyof typeof item.title]}</h3>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm sm:text-base text-gray-400 mb-4">
-                        <span className="font-medium text-blue-400">{item.organization}</span>
+                        <span className="font-medium text-blue-400">{item.organization[locale as keyof typeof item.organization]}</span>
                         <span className="hidden sm:block">•</span>
-                        <span>{item.period}</span>
+                        <span>{item.period[locale as keyof typeof item.period]}</span>
                       </div>
                       <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-300">
                         {item.description.map((desc, i) => (
-                          <li key={i}>{desc}</li>
+                          <li key={i}>{desc[locale as keyof typeof desc]}</li>
                         ))}
                       </ul>
                     </div>

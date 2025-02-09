@@ -7,8 +7,10 @@ import { motion } from "framer-motion"
 import { FiArrowLeft } from "react-icons/fi"
 import { supabase } from "@/lib/supabase"
 import type { Blog } from "@/lib/supabase"
+import { useTranslations } from "next-intl"
 
 export default function Blog() {
+  const t = useTranslations("blog")
   const [posts, setPosts] = useState<Blog[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -45,7 +47,7 @@ export default function Blog() {
             >
               <span className="flex items-center gap-2 text-sm sm:text-base">
                 <FiArrowLeft className="text-lg sm:text-xl" />
-                Back to Home
+                {t("backToHome")}
               </span>
             </Link>
           </div>
@@ -53,18 +55,17 @@ export default function Blog() {
           {/* Header */}
           <header className="mb-12 sm:mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              Blog
+              {t("title")}
             </h1>
             <p className="text-base sm:text-lg text-gray-300">
-              Sharing my thoughts and experiences about software development,
-              technology, and everything in between.
+              {t("description")}
             </p>
           </header>
 
           {/* Blog Posts */}
           <div className="space-y-8 pb-12 sm:pb-16 md:pb-20">
             {loading ? (
-              <div className="text-center text-gray-400">Loading...</div>
+              <div className="text-center text-gray-400">{t("loading")}</div>
             ) : posts.length > 0 ? (
               posts.map((post) => (
                 <motion.article
@@ -102,7 +103,7 @@ export default function Blog() {
                           })}
                         </div>
                         <span className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm sm:text-base">
-                          Read More
+                          {t("readMore")}
                           <svg
                             className="w-4 h-4"
                             fill="none"
@@ -131,11 +132,10 @@ export default function Blog() {
                   border border-gray-700/50 text-center"
               >
                 <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">
-                  Coming Soon!
+                  {t("noPostTitle")}
                 </h2>
                 <p className="text-base sm:text-lg text-gray-300">
-                  I&apos;m currently working on some interesting blog posts.
-                  Stay tuned for updates!
+                  {t("noPostMessage")}
                 </p>
               </motion.div>
             )}

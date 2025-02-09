@@ -6,6 +6,7 @@ import type { Blog } from '@/lib/supabase';
 import RichTextEditor from './RichTextEditor';
 import ImageUpload from './ImageUpload';
 import { PostgrestError } from '@supabase/supabase-js';
+import { useTranslations } from 'next-intl';
 
 interface BlogPostFormProps {
   post?: Blog;
@@ -13,6 +14,7 @@ interface BlogPostFormProps {
 }
 
 export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
+  const t  = useTranslations('admin.components.blogPostForm');
   const [title, setTitle] = useState(post?.title || '');
   const [content, setContent] = useState(post?.content || '');
   const [imageUrl, setImageUrl] = useState(post?.image_url || '');
@@ -69,9 +71,10 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
       if (error instanceof PostgrestError) {
         setError(error.message);
       } else {
-        setError('An unexpected error occurred');
+        setError(t("unexpectedError"));
         console.error('Unknown error:', error);
       }
+
     } finally {
       setLoading(false);
     }
@@ -120,7 +123,7 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
 
       <div>
         <label htmlFor="title" className="block text-sm font-medium text-gray-300">
-          Title
+          {t("title")}
         </label>
         <input
           type="text"
@@ -134,7 +137,7 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
 
       <div>
         <label htmlFor="slug" className="block text-sm font-medium text-gray-300">
-          Slug
+          {t("slug")}
         </label>
         <input
           type="text"
@@ -148,7 +151,7 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
 
       <div>
         <label htmlFor="excerpt" className="block text-sm font-medium text-gray-300">
-          Excerpt
+          {t("excerpt")}
         </label>
         <textarea
           id="excerpt"
@@ -162,14 +165,14 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
 
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          Content
+          {t("content")}
         </label>
         <RichTextEditor content={content} onChange={handleContentChange} />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          Featured Image
+          {t("image")}
         </label>
         <ImageUpload
           onUploadComplete={handleImageUpload}
@@ -186,7 +189,7 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
           className="h-4 w-4 rounded border-gray-600 bg-gray-800 text-blue-600 focus:ring-blue-500"
         />
         <label htmlFor="published" className="ml-2 block text-sm text-gray-300">
-          Published
+          {t("published")}
         </label>
       </div>
 
@@ -195,8 +198,9 @@ export default function BlogPostForm({ post, onSuccess }: BlogPostFormProps) {
         disabled={loading || !isDirty}
         className="w-full rounded-md bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
       >
-        {loading ? 'Saving...' : isDirty ? (post ? 'Save Changes' : 'Create Post') : 'No Changes'}
+        {loading ? t("loading") : isDirty ? (post ? t("saveChanges") : t("createPost")) : t("noChanges")}
       </button>
     </form>
+
   ); 
 } 

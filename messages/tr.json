@@ -1,0 +1,116 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "projects": "Projeler",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "skills": "Yetenekler",
+    "journey": "Yolculuğum"
+  },
+  "hero": {
+    "title": "Merhaba, Ben ",
+    "name": "Arif Batuhan",
+    "profession": "Yazılım Mühendisi",
+    "description": "Yenilikçi çözümler yaratma ve fikirleri kod aracılığıyla hayata geçirmekten hoşlanırım. Web geliştirme ve oyun geliştirme alanlarında tecrübeli bir mühendisim.",
+    "buttonContact": "İletişime Geç",
+    "buttonProjects": "Projeleri Görüntüle"
+  },
+  "about": {
+    "title": "Hakkımda",
+    "paragraph1": "Bilgisayar biliminde güçlü bir temele ve yenilikçi çözümler yaratma odağına sahip bir yazılım mühendisiyim. Yazılım yolculuğum lise yıllarımda, kodlama ve problem çözme tutkumu keşfettiğim dönemde başladı.",
+    "paragraph2": "Kariyerim boyunca web uygulamalarından mobil oyunlara kadar çeşitli projeler üzerinde çalışma fırsatım oldu. Bu çeşitlilik, çok yönlü bir beceri seti ve yeni teknolojilere ve zorluklara uyum sağlama yeteneği geliştirmeme yardımcı oldu.",
+    "paragraph3": "Uzmanlık alanlarım arasında full-stack web geliştirme, oyun geliştirme, React, Next.js, Node.js ve Unity gibi teknolojiler yer almaktadır. Her zaman yeni teknolojiler öğrenmeye ve sektör trendleriyle güncel kalmaya gayret gösteririm.",
+    "listTitle": "Neler Yapıyorum?",
+    "listItem1": "Responsive ve kullanıcı dostu web uygulamaları geliştirme",
+    "listItem2": "Unity ile etkileşimli mobil oyunlar geliştirme",
+    "listItem3": "Verimli backend çözümleri tasarlama ve inşa etme",
+    "listItem4": "Uygulama performansını ve kullanıcı deneyimini optimize etme"
+  },
+  "projects": {
+    "title": "Projelerim"
+  },
+  "journey":{
+    "title": "Yolculuğum"
+  },
+  "contact": {
+    "mainTitle": "İletişime Geç",
+    "subTitle": "Haydi Bağlantı Kuralım!",
+    "description": "İşbirlikleri, fırsatlar veya sadece merhaba demek için bana yazmaktan çekinmeyin! En kısa sürede size geri döneceğim.",
+    "form": {
+      "name": "İsim",
+      "namePlaceholder": "İsminiz",
+      "email": "E-Posta",
+      "emailPlaceholder": "email@example.com",
+      "message": "Mesaj",
+      "messagePlaceholder": "Mesajınızı giriniz...",
+      "buttonIdle": "Gönder",
+      "buttonSending": "Gönderiliyor...",
+
+      "successMessage": "Mesaj başarıyla gönderildi! En kısa sürede size dönüş yapacağım.",
+      "errorMessage": "Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz."
+    }
+  },
+  "footer": {
+    "copyright": "Arif Batuhan Yıldırımoğlu. Tüm hakları saklıdır."
+  },
+  "blog": {
+    "backToHome": "Ana Sayfaya Dön",
+    "title": "Blog Yazıları",
+    "description": "Yazılım geliştirme, teknoloji ve bu konularla ilgili her şey hakkında düşüncelerimi ve tecrübelerimi paylaşıyorum.",
+    "loading": "Yükleniyor...",
+    "readMore": "Okumaya Devam Et",
+    "noPostTitle": "Çok Yakında!",
+    "noPostMessage": "Şu an birkaç ilginç blog yazısı üzerinde çalışıyorum. Güncellemeler için takipte kalın!"
+  },
+  "admin": {
+    "loading": "Yükleniyor...",
+    "signOut": "Çıkış Yap",
+    "createPost": "Yeni Yazı Oluştur",
+    "managePosts": "Yazıları Yönet",
+    "login": {
+      "loading": "Yükleniyor...",
+      "title": "Admin Paneline Giriş Yapın",
+      "loginFailedError": "Giriş hatası. Lütfen tekrar deneyiniz.",
+      "unexpectedError": "Bilinmeyen bir hata oluştu",
+      "email": "E-Posta",
+      "password": "Şifre",
+      "signIn": "Giriş Yap"
+    },
+    "components": {
+      "blogPostForm": {
+        "title": "Başlık",
+        "slug": "Slug",
+        "excerpt": "Alıntı",
+        "content": "İçerik",
+        "image": "Öne Çıkan Görsel",
+        "noImage": "Görsel Seçilmedi",
+        "change": "Değiştir",
+        "published": "Yayınla",
+        "unexpectedError": "Bilinmeyen bir hata oluştu",
+        "loading": "Kaydediliyor...",
+        "saveChanges": "Değişiklikleri Kaydet",
+        "createPost": "Yazı Oluştur",
+        "noChanges": "Değişiklik Yok"
+      },
+      "blogPostList": {
+        "areYouSure": "Bu yazıyı silmek istediğinize emin misiniz?",
+        "loading": "Yükleniyor...",
+        "backToList": "Listeye Dön",
+        "edit": "Düzenle",
+        "delete": "Sil",
+        "published": "Yayınlandı",
+        "draft": "Taslak"
+      },
+      "imageUpload": {
+        "errorUpload": "Bir görsel yükleyiniz",
+        "errorImageSize": "Görsel boyutu 5MB'den küçük olmalıdır",
+        "noImageSelected": "Görsel Seçilmedi",
+        "uploading": "Yükleniyor...",
+        "change": "Değiştir",
+        "supportedFormats": "Desteklenen formatlar: JPG, PNG, GIF (max 5MB)"
+      }
+
+    }
+  }
+} 

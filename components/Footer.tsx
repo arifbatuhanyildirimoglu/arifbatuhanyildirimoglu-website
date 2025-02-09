@@ -1,8 +1,12 @@
+import { useTranslations } from "next-intl"
+
 export default function Footer() {
+  const t = useTranslations("footer")
+
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-4 text-center">
-        <p>&copy; {new Date().getFullYear()} Arif Batuhan Yıldırımoğlu. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {t("copyright")}</p>
         <div className="mt-4 flex justify-center space-x-4">
           <a href="https://www.linkedin.com/in/arifbatuhanyildirimoglu/" className="hover:text-blue-400 transition-colors duration-300">
             LinkedIn
