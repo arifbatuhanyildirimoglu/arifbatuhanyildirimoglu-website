@@ -41,7 +41,7 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-gray-900 text-white">
+      <main className="min-h-screen bg-gray-900 text-white pt-24">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-32">
             <div className="text-lg">Loading...</div>
@@ -52,7 +52,7 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-900 text-white">
+    <main className="min-h-screen bg-gray-900 text-white pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold">Blog Admin</h1>

@@ -48,7 +48,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between md:justify-center relative">
           {/* Logo */}
-          <Link href="/" className="hidden md:block md:absolute md:left-4">
+          <Link href="/" className="hidden lg:block lg:absolute lg:left-4">
             <div className="relative w-14 h-14 group overflow-hidden bg-gray-100 rounded-tr-lg rounded-bl-lg transition-all duration-300 hover:rounded-none">
               <div className="absolute inset-0 flex items-center justify-center text-gray-900 font-semibold text-sm transition-all duration-300 group-hover:scale-105">
                 {'<ABY>'}

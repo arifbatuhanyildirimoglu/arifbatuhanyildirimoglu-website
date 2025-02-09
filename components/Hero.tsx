@@ -64,7 +64,7 @@ export default function Hero() {
                 src="/images/author.jpg"
                 alt="Arif Batuhan Yıldırımoğlu"
                 fill
-                className="object-cover rounded-full border-4 border-blue-500/50"
+                className="object-cover rounded-full border-4 border-blue-500/50 z-10"
                 priority
                 quality={100}
               />
@@ -86,8 +86,8 @@ export default function Hero() {
           }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         >
-          <div className="w-6 h-10 border-2 border-blue-400 rounded-full p-1">
-            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-scroll" />
+          <div className="w-6 h-10 border-2 border-blue-400 rounded-full p-1.5">
+            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-scroll mx-auto" />
           </div>
         </motion.div>
       </div>
