@@ -1,8 +1,8 @@
-/** @type {import('next').NextConfig} */
-const withNextIntl = require('next-intl/plugin')(
-  './i18n/request.ts'
-);
+import createNextIntlPlugin from 'next-intl/plugin';
 
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: [
@@ -12,4 +12,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig); 
+export default withNextIntl(nextConfig); 

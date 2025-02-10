@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import {Link} from "@/i18n/routing"
 import { usePathname, useRouter } from "next/navigation"
 import { useTranslations, useLocale } from 'next-intl'
 import { Globe } from 'lucide-react'
