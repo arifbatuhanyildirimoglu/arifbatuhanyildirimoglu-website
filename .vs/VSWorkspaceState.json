@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\components"
   ],
+  "SelectedNode": "\\components\\AnimatedBackground.tsx",
   "PreviewInSolutionExplorer": false
 }

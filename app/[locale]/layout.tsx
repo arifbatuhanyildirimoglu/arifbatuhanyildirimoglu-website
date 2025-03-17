@@ -13,6 +13,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Arif Batuhan Yıldırımoğlu",
   description: "Personal website of Arif Batuhan Yıldırımoğlu",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.ico' },
+    ],
+    shortcut: { url: '/favicon.ico' },
+    apple: { url: '/favicon.ico' },
+  },
 };
 
 export function generateStaticParams() {
@@ -36,7 +44,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
